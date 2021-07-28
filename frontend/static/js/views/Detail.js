@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("Dashboard");
+    this.setTitle("Detail");
   }
 
   /**
@@ -11,8 +11,9 @@ export default class extends AbstractView {
    * @returns app div에 그려낼 해당 view의 html을 반환합니다.
    */
   async getHtml() {
+    // console.log(this.params.id); // id값만 찍힘
     return `
-            <h1>초기 페이지입니다</h1>
+            <h1>상세 페이지입니다</h1>
             <p>      
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim dolore quia
               voluptate odio corporis aliquid? At adipisci labore eligendi rerum qui

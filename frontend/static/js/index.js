@@ -4,10 +4,25 @@
  */
 
 import Dashboard from "./views/Dashboard.js";
+import Detail from "./views/Detail.js";
 import Courses from "./views/Courses.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+
+const getParams = (match) => {
+  const values = match.result.slice(1);
+  // 뒤에 쿼리파라미터 등이 붙어도 인지할 수 있게 작성
+  // to do : 다시 보기...
+  const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(
+    (result) => result[1]
+  );
+  return Object.fromEntries(
+    keys.map((key, i) => {
+      return [key, values[i]];
+    })
+  );
+};
 
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -18,10 +33,9 @@ const router = async () => {
   const routes = [
     { path: "/", view: Dashboard },
     { path: "/courses", view: Courses },
-    { path: "/courses/:id", view: () => console.log("detail page") },
+    { path: "/courses/:id", view: Detail },
   ];
 
-  // Test each route for potential match
   const potentialMatches = routes.map((route) => {
     return {
       route: route,
@@ -37,18 +51,15 @@ const router = async () => {
   if (!match) {
     match = {
       route: routes[0],
-      result: true,
+      result: [location.pathname],
     };
   }
 
-  //view가 class이기 때문에 new 생성자를 사용해서 새 인스턴스를 만든다
+  // view가 class이기 때문에 new 생성자를 사용해서 새 인스턴스를 만든다
   const view = new match.route.view(getParams(match));
 
   // async await으로 관리해주지 않으면 자바스크립트가 요소를 찾지 못해 에러가 날까?
   document.querySelector("#app").innerHTML = await view.getHtml();
-
-  // 특정 pathname에 위치한다면 그것에 일치하는 함수를 실행하게 한다
-  console.log(match.route.view());
 };
 
 window.addEventListener("popstate", router);

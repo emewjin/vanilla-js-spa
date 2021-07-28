@@ -12,7 +12,7 @@ export default class extends AbstractView {
    */
   async getHtml() {
     return `
-            <h1>초기 페이지입니다</h1>
+            <h1 class="dashboard">초기 페이지입니다</h1>
             <p>      
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim dolore quia
               voluptate odio corporis aliquid? At adipisci labore eligendi rerum qui

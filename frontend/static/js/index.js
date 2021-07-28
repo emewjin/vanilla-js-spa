@@ -6,6 +6,8 @@
 import Dashboard from "./views/Dashboard.js";
 import Detail from "./views/Detail.js";
 import Courses from "./views/Courses.js";
+import routeContainer from "./routeContainer.js";
+import coursesContainer from "./coursesContainer.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -60,6 +62,10 @@ const router = async () => {
 
   // async await으로 관리해주지 않으면 자바스크립트가 요소를 찾지 못해 에러가 날까?
   document.querySelector("#app").innerHTML = await view.getHtml();
+
+  const path = location.pathname;
+  if (path === "/") routeContainer();
+  if (path.includes("/courses")) coursesContainer();
 };
 
 window.addEventListener("popstate", router);

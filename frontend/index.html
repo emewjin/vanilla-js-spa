@@ -7,7 +7,12 @@
     <title>Build SPA with only vanilla javascript</title>
   </head>
   <body>
-    <h1>this is index.html</h1>
+    <nav class="nav">
+      <a href="/" class="nav__link" data-link>초기페이지</a>
+      <a href="/courses" class="nav__link" data-link>코스</a>
+    </nav>
+    <!-- 리액트 앱처럼 route에 맞는 콘텐츠를 app 안에 그려넣어 갈아끼운다 -->
+    <div id="app"></div>
     <script src="/static/js/index.js" type="module"></script>
   </body>
 </html>

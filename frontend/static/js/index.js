@@ -3,6 +3,8 @@
  * routers
  */
 
+import Dashboard from "../views/Dashboard";
+
 const navigateTo = (url) => {
   history.pushState(null, null, url);
   router();
@@ -10,7 +12,7 @@ const navigateTo = (url) => {
 
 const router = async () => {
   const routes = [
-    { path: "/", view: () => console.log("route page") },
+    { path: "/", view: Dashboard },
     { path: "/courses", view: () => console.log("courses page") },
     { path: "/courses/:id", view: () => console.log("detail page") },
   ];

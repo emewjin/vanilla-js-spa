@@ -4,6 +4,59 @@
 - SPA를 위한 라우팅을 구현합니다 (동적 라우팅 포함)
 - 구현 과정 및 공부 내용은 [📎개인 블로그](https://emewjin.github.io/study/vanilaspa)에 정리되어 있습니다
 
+## 실행
+
+`npm start`
+
+## jest를 이용한 테스트
+
+- https://dev.to/thawkin3/how-to-unit-test-html-and-vanilla-javascript-without-a-ui-framework-4io
+
+### jest 설치
+
+- `npm install --save-dev jest` : jest 설치
+- `npm install --save-dev @testing-library/dom`
+- `npm install --save-dev @testing-library/jest-dom`
+
+그냥 실행하면 에러가 난다.
+
+### 바벨 설치
+
+- Reference : https://poiemaweb.com/es6-babel-webpack-1
+- `npm install --save-dev @babel/core @babel/cli`
+- `npm install --save-dev @babel/preset-env`
+
+그리고 바벨 설정 파일을 만들어준다
+
+- `babel.config.js`
+
+```js
+module.exports = {
+  presets: [
+    [
+      "@babel/preset-env",
+      {
+        targets: "> 0.25%, not dead",
+      },
+    ],
+  ],
+};
+```
+
+jest설정 파일도 만들어준다
+
+- `jest.config.js`
+
+```js
+module.exports = {
+  clearMocks: true,
+  setupFilesAfterEnv: ["regenerator-runtime/runtime"],
+  testPathIgnorePatterns: ["/node_modules/"],
+};
+```
+
+---
+
 <details>
 <summary>블로그 정리 전 임시로 기록해두었던 내용들</summary>
 <div markdown="1">

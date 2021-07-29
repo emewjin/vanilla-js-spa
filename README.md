@@ -1,3 +1,13 @@
+# 바닐라 자바스크립트로 SPA 구현해보기
+
+- `node.js`, `vanilla javascript`, `history API`를 이용합니다
+- SPA를 위한 라우팅을 구현합니다 (동적 라우팅 포함)
+- 구현 과정 및 공부 내용은 [📎개인 블로그](https://emewjin.github.io/study/vanilaspa)에 정리되어 있습니다
+
+<details>
+<summary>블로그 정리 전 임시로 기록해두었던 내용들</summary>
+<div markdown="1">
+
 # 간단하게 정리하는 문서
 
 - [유튜브 강의](https://www.youtube.com/watch?v=6BozpmSjk-Y&t=900s)를 보고 바닐라 자바스크립트로 SPA 구현해보기
@@ -220,3 +230,6 @@ input: "/courses/:id"
   );
 
 ```
+
+</div>
+</details>

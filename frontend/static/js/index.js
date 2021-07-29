@@ -57,10 +57,8 @@ const router = async () => {
     };
   }
 
-  // view가 class이기 때문에 new 생성자를 사용해서 새 인스턴스를 만든다
   const view = new match.route.view(getParams(match));
 
-  // async await으로 관리해주지 않으면 자바스크립트가 요소를 찾지 못해 에러가 날까?
   document.querySelector("#app").innerHTML = await view.getHtml();
 
   const path = location.pathname;

@@ -2,7 +2,7 @@
 
 - `node.js`, `vanilla javascript`, `history API`를 이용합니다
 - SPA를 위한 라우팅을 구현합니다 (동적 라우팅 포함)
-- 구현 과정 및 공부 내용은 [📎개인 블로그](https://emewjin.github.io/study/vanilaspa)에 정리되어 있습니다
+- 구현 과정 및 공부 내용은 [📎개인 블로그](https://emewjin.github.io/211215/)에 정리되어 있습니다
 
 ## 실행
 
